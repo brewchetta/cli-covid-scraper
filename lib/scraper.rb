@@ -1,14 +1,20 @@
 class Scraper
 
+
   def fetch_data
+    @output = "\rGathering today's data..."
     # scrape if no data recorded today or update forced
     if State.today.length == 0 || ARGV.include?("update")
-      puts "Gathering today's data"
+      puts "\n"
+      print @output
       uri = open("https://coronavirusapi.com/")
       doc = Nokogiri::HTML.parse(uri)
       full_table = doc.css("#fulltable tbody")
       process_states_data(full_table)
+      puts "\n"
     end
+  rescue
+    puts "\nScrape unsuccessful, defaulting to old data...".colorize :red
   end
 
   def process_states_data(table)
@@ -33,6 +39,8 @@ class Scraper
       date_recorded: Time.now.to_s.split(" ")[0]
     }
     State.create(hash_data)
+    @output += "."
+    print @output
   end
 
 end
