@@ -41,7 +41,7 @@ class Viewer
   end
 
   def display_last_checked
-    puts "Last updated #{@states.min_by(&:last_updated).last_updated.to_s.colorize :red} hours ago"
+    puts "Last reported #{@states.min_by(&:last_updated).last_updated.to_s.colorize :red} hours ago"
   end
 
   def display_state(state_name)
