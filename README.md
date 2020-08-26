@@ -19,3 +19,7 @@ You can also run with arguments of state initials, for example `bin/run ny nj`, 
 The app will attempt to update the first time it's run each day. You can force an update with `update` as an argument (for example, `bin/run update`).
 
 You can additionally display a general overview along with specific state data by including the `general` argument. For example, `bin/run general ny nj` would display an overview of the USA as well as specific information for NY and NJ.
+
+### Credit
+
+Thanks to the folks at https://coronavirusapi.com/ who have been updating daily with new data for COVID19.
