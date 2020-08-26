@@ -5,6 +5,8 @@ class Scraper
     @output = "\rGathering today's data..."
     # scrape if no data recorded today or update forced
     if State.today.length == 0 || ARGV.include?("update")
+      print "Deleting stale data..."
+      State.today.each {|s| s.delete; print "."}
       puts "\n"
       print @output
       uri = open("https://coronavirusapi.com/")

@@ -10,13 +10,13 @@ class State < ActiveRecord::Base
   end
 
   def self.most_recent
-    most_recent_date = self.all.max_by(&:date_recorded)
+    most_recent_date = self.all.max_by(&:date_recorded).date_recorded
     self.get_by_date(most_recent_date)
   end
 
   # adds up total of a value for today's date
   def self.total(value)
-    self.today.map{ |row| row.send(value) }.reduce(&:+)
+    self.most_recent.map{ |row| row.send(value) }.reduce(&:+)
   end
 
   # finds an average of a value for today's date
