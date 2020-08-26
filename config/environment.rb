@@ -1,11 +1,15 @@
+# Gems
 require "bundler/setup"
 Bundler.require
-
 require "pry"
 require "uri"
 require "net/http"
 require "open-uri"
 
-require_relative "../lib/scraper"
-require_relative "../lib/state-data"
-require_relative "../lib/viewer"
+# Globals
+TODAY = Time.now.to_s.split(" ")[0]
+
+# App
+require_relative "adapter"
+require_relative "monkey-patch"
+require_all "lib"
