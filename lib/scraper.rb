@@ -5,10 +5,10 @@ class Scraper
     @output = "\rGathering today's data..."
     # scrape if no data recorded today or update forced
     if State.today.length == 0 || ARGV.include?("update")
-      print "Deleting stale data..."
       uri = open("https://coronavirusapi.com/")
       doc = Nokogiri::HTML.parse(uri)
       full_table = doc.css("#fulltable tbody")
+      print "Deleting stale data..." if State.today.length > 0
       State.today.each {|s| s.delete; print "."}
       puts "\n"
       print @output
