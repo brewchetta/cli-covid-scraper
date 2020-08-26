@@ -7,10 +7,12 @@ class Viewer
   def run
     @states = State.today.length ? State.today : State.most_recent
     ARGV.reject!{|arg| arg == "update"}
-    if ARGV.length > 0
-      ARGV.each { |state| display_state(state) }
-    else
+    if ARGV.include?("general") || ARGV.length == 0
       display_general_info
+      ARGV.reject!{|arg| arg == "general"}
+    end
+    if ARGV.length > 0
+      ARGV.each { |arg| arg == "general" ? display_general_info : display_state(arg) }
     end
   end
 
