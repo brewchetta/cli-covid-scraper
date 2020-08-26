@@ -6,3 +6,9 @@ desc "Opens pry"
 task :console do
   Pry.start
 end
+
+task :install do
+  system("chmod +x bin/run")
+  system("bundle install")
+  system("rake db:migrate")
+end
