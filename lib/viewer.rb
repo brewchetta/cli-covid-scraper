@@ -5,6 +5,7 @@ class Viewer
   end
 
   def run
+    ARGV.reject!{|arg| arg == "update"}
     if ARGV.length > 0
       ARGV.each { |state| display_state(state) }
     else
