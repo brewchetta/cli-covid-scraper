@@ -1,8 +1,8 @@
 class Scraper
 
   def fetch_data
-    # scrape if no data recorded for today
-    if State.today.length == 0
+    # scrape if no data recorded today or update forced
+    if State.today.length == 0 || ARGV.include?("update")
       puts "Gathering today's data"
       uri = open("https://coronavirusapi.com/")
       doc = Nokogiri::HTML.parse(uri)
