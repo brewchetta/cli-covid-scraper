@@ -14,7 +14,7 @@ class Scraper
       puts "\n"
     end
   rescue
-    puts "\nScrape unsuccessful, defaulting to old data...".colorize :red
+    puts "\nScrape unsuccessful...".colorize :red
   end
 
   def process_states_data(table)
