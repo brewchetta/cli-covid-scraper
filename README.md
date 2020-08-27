@@ -10,6 +10,8 @@ Requires `rake` to run. You can install `rake` from the terminal with `gem insta
 
 To install from the terminal, first navigate to the file directory and then run `rake install`.
 
+To install the shell command, run `rake shell_command` after installation. This will only work if your computer utilizes `bash` or `zshell`. To uninstall, remove the function starting with `covid()` from your `.bashrc` or `.zshrc` file.
+
 ### Usage
 
 To get top level stats for the US, navigate to the directory and execute `bin/run`.
