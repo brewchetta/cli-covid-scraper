@@ -10,7 +10,7 @@ Requires `rake` to run. You can install `rake` from the terminal with `gem insta
 
 To install from the terminal, first navigate to the file directory and then run `rake install`.
 
-To install the shell command, run `rake shell_command` after installation. This will only work if your computer utilizes `bash` or `zshell`. To uninstall, remove the function starting with `covid()` from your `.bashrc` or `.zshrc` file.
+To install the shell command, run `rake shell_command` after installation. This will only work if your computer utilizes `bash` or `zshell`. To uninstall, remove the function starting with `covid()` from your `.bashrc` or `.zshrc` file. The shell command will not work if the covid counter is moved to a different directory.
 
 ### Usage
 
@@ -21,6 +21,8 @@ You can also run with arguments of state initials, for example `bin/run ny nj`, 
 The app will attempt to update the first time it's run each day. You can force an update with `update` as an argument (for example, `bin/run update`).
 
 You can additionally display a general overview along with specific state data by including the `general` argument. For example, `bin/run general ny nj` would display an overview of the USA as well as specific information for NY and NJ.
+
+If the shell command has been installed, the replace `bin/run` with `covid` to run the program (try `covid ny nj`). The shell command can be run from any directory.
 
 ### Credit
 
